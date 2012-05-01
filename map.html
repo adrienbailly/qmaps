@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Controling Google Maps through Qt application</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <style type="text/css">
+      html, body, #map_canvas {
+        margin: 0;
+        padding: 0;
+        height: 90%;
+      }
+    </style>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+      var map;
+      
+      var myLatlng = new google.maps.LatLng(45.20297, 5.6995);
+      
+      function initialize() {
+        var myOptions = {
+          zoom: 14,
+          center: new google.maps.LatLng(45.20297, 5.6995),
+          mapTypeId: google.maps.MapTypeId.HYBRID,
+          zoomControl: true,
+          zoomControlOptions: { style: google.maps.ZoomControlStyle.SMALL },
+        };
+        
+        map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+      }       
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+    </script>
+
+  </head>
+  <body>
+    <div id="map_canvas"></div>    
+  </body>
+</html>
+
